@@ -1,15 +1,15 @@
-interface Post {
+interface IPost {
 	id: string;
 	title: string;
 	body: string;
 }
 
-interface NormalizedData {
-	byId: Record<Post["id"], Post>;
+interface INormalizedData {
+	byId: Record<IPost["id"], IPost>;
 	allIds: string[];
 }
 
-const posts: Post[] = [
+const posts: IPost[] = [
 	{
 	  id: '62e69d5a5458aac0ed320b35',
 	  title: 'id labore ex et quam laborum',
@@ -47,9 +47,9 @@ const posts: Post[] = [
 	}
   ];
   
-  const normalizeData = (unnormalizedData: Post[]): NormalizedData => {
+  const normalizeData = (unnormalizedData: IPost[]): INormalizedData => {
 	return {
-		byId: unnormalizedData.reduce<Record<string, Post>>((acc, post) => {
+		byId: unnormalizedData.reduce<Record<string, IPost>>((acc, post) => {
 			acc[post.id] = post;
 			return acc;
 		}, {}),
